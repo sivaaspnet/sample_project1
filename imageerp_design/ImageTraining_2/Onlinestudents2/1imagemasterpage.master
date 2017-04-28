@@ -1,0 +1,1267 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="1imagemasterpage.master.cs" Inherits="imagemasterpage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Master Page</title>
+     <script type="text/javascript" src="scripts/jquery-1.2.2.pack.js"></script>
+     <script type="text/javascript" src="scripts/htmltooltip.js"></script>
+    <script src="scripts/jquery.autocomplete.js" type="text/javascript"></script>
+    
+   <link href="styles/main.css" type="text/css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" href="styles/jquery.treeview.css" type="text/css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="styles/prettyPhoto.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="styles/jquery-ui-1.8.2.custom.css" />    
+   <script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script> 
+    <script type="text/javascript" src="scripts/jquery.rotatingMenu.js"></script>
+    <script type="text/javascript" src="scripts/jquery.treeview.js"></script>
+       <link rel="shortcut icon" type="image/x-icon" href="layout/logo.png"/>
+
+
+        <style type="text/css"> 
+   
+        p.flip{
+ 
+        }
+div.panel
+{
+
+}
+div.panel a{
+
+
+}
+div.panel a:Hover{
+
+
+
+}    
+        
+</style>
+       <script type="text/javascript">
+jQuery("document").ready(function (){
+  jQuery("tr.tooltip:even").css("background-color","#f1faff");
+  jQuery("tr.tooltip:odd").css("background-color","#cde1f8");
+  });
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+
+ jQuery(".folder").click(function(){
+  	 $(".submenu").show();
+  	 });
+
+jQuery("#Ul1").treeview({
+				collapsed: true,
+				animated: "medium",
+				control:"#sidetreecontrol",
+				persist: "location"
+			});
+
+});
+
+
+</script>
+<script>
+jQuery(document).ready(function(){
+
+ 
+	 jQuery(".panel").hide();
+jQuery(".flip").click(function(){
+   jQuery(".panel").slideToggle("slow");
+  });
+
+	
+ 
+});
+</script>
+ <script type="text/javascript">
+	// Rotating menu
+       jQuery(document).ready(function() 
+        {
+        
+              jQuery("#report").tabs();
+          
+   
+	   
+   jQuery("#report").tabs({
+       show: function() {
+       
+       var newIdx = $('#report').tabs('option','selected');
+    $('#<%= hdn_drop.ClientID %>').val(newIdx);
+        }
+   });
+
+           
+          
+         jQuery(".notification").tabs();
+        
+        jQuery('#parent').tabs();
+		var $tabs = jQuery('#tabs').tabs();
+		$tabs.tabs( "disable" , 1);
+		if(document.getElementById("hdnTab").value=="Admission")
+		{
+		     $tabs.tabs("disable" , 1);
+		     $tabs.tabs("disable" , 2);
+		     $tabs.tabs("disable" , 3);
+		     $tabs.tabs("disable" , 4);
+		     $tabs.tabs("disable" , 5);
+		}
+		
+		jQuery("#nextstep").click(function()
+		{
+		    if (enquiryform1()== true)
+		    {
+ 		        $tabs.tabs("enable", 1 )
+		        $tabs.tabs('select', 1); // switch to third tab
+	   	        return false;
+            }
+  		});
+  		jQuery("#step2").click(function()
+		{
+		    if (enquiryform2()== true)
+		    {
+ 		        $tabs.tabs("enable", 2 )
+		        $tabs.tabs('select', 2); // switch to third tab
+	   	        return false;
+            }
+  		});
+  		
+  		jQuery("#step1").click(function()
+		{
+		    if (enquiryform1()== true)
+		    {
+ 		        $tabs.tabs("enable", 1 )
+		        $tabs.tabs('select', 1); // switch to third tab
+	   	        return false;
+            }
+  		});
+  			
+  		jQuery("#step3").click(function()
+		{
+		    if (admissionform()== true)
+		    {
+ 		        $tabs.tabs("enable", 3 )
+		        $tabs.tabs('select', 3); // switch to third tab
+	   	        return false;
+            }
+  		});
+  		jQuery("#step4").click(function()
+		{
+		    if (validstudy()== true)
+		    {
+ 		        $tabs.tabs("enable", 4 )
+		        $tabs.tabs('select', 4); // switch to third tab
+	   	        return false;
+            }
+  		});
+
+
+  		
+  		jQuery("#admnextstep1").click(function(){
+  	
+  		  if (admissionform()== true)
+  		    {
+  		        $tabs.tabs("enable", 1 );
+                $tabs.tabs('select', 1);
+                 return false;
+            }
+  		});
+  		
+  	
+  		jQuery("#admnextstep2").click(function(){
+  			
+  		  if (validstudy()== true)
+  		   
+  		  {
+  		      $tabs.tabs("enable", 2 );
+            $tabs.tabs('select', 2);
+              return false;
+         }
+  		});
+  		
+  		
+  		
+
+  		
+	    jQuery('#rotatingMenu').rotatingMenu(
+	     { 
+			    maxSpeed: 2000, /*500 is default value*/ 
+			    minSpeed: 2000, /*2000 is default value*/
+	    });
+	});
+
+
+ 
+    </script>
+	<link href="css/jquery.autocomplete.css" type="text/css" rel="stylesheet" media="all" />	
+</head>
+<body  >			
+
+    <form id="form1" runat="server" autocomplete="off"> 
+    <!--wrapper start-->
+   <div id="outerwrapper">
+   <asp:HiddenField ID="hdn_drop" runat="server" Value="" /> 
+
+<!--body start-->
+<!--navigation-->
+
+<div class="nav_roundcorner">
+ <ul id="navMain">
+  <li class="imglogo"><a href="#"><img src="../superadmin/layout/logo.png"/></a></li>
+  <%if (Session["Centrerole"].ToString() == "SuperAdmin")
+         {
+         %>
+    <li class="navfirst" ><a href="#">Centre<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+       <li><a href="Dashboard.aspx">Dashboard</a></li>
+       <hr />
+  <li><a href="addcentre.aspx">Add Centre</a></li>
+  <li><a href="centreuserlogin.aspx">View Centre</a></li>
+   <hr />
+  <li><a href="CreateManager.aspx">Create Manager</a></li>
+  <li><a href="regionhead.aspx">Create RegionHead</a></li>
+  <li><a href="RandD.aspx">Create R & D Staff</a></li>
+  <li><a href="certificatelogin.aspx">Create certificate Dept. Staff</a></li>
+  <li><a href="Printingdepartment.aspx">Create Printing Dept. Staff</a></li>
+   <hr />
+  <li><a href="Extendnewcourse.aspx">Extend To New Course</a></li>
+  <li><a href="exportoldtonew.aspx">Export OLD to NEW</a></li>
+  <li><a href="upgrade.aspx">Course Upgrade</a></li>
+ 
+  <hr />
+  
+    <li><a href="SiteStatus.aspx">Make Offline</a></li>
+    <li><a href="AddInstallment.aspx">Add Installment</a></li>
+    <li><a href="CourseFeesInsert.aspx">Insert CourseFees</a></li>
+    <li><a href="Change_Receipt_Status.aspx">Update Receipt Status</a></li>
+  
+</ul>
+</li>
+<%}
+  %>
+  
+    <%if (Session["Centrerole"].ToString() == "Printing Department")
+         {
+         %>
+         <li ><a href="#">View Details<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <li><a href="Viewbookindent.aspx">View Book Indent Details</a></li>
+      </ul>
+      </li>
+    <%}
+  %> 
+  
+ 
+  <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Marketing" || Session["Centrerole"].ToString() == "Counselor" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Ipad" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+<li ><a href="#">Admission<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+          <li><a href="QuickAdmission.aspx">Express Enrollment</a></li>
+         <li><a href="EnquiryType.aspx">Add Enquiry</a></li>
+        <li><a href="ViewEnquiry.aspx">View Enquiry</a></li>       
+        <li><a href="ViewAdmission.aspx">Enrollment Details</a></li>
+        <hr />
+         
+         <li><a href="Receiptdetails.aspx">Receipts Details </a></li>
+         <li><a href="Breakage.aspx">Breakage Receipts </a></li>
+           <li><a href="InvoiceMenu.aspx">Invoice Details </a></li>
+          <hr />
+           <li><a href="Extendnewcourse.aspx">Extend To New Course</a></li>
+               <li><a href="dualinvoice.aspx">Multiple Invoice/Course Upgrade</a></li>
+                <hr />
+      <li><a href="studenttransfer.aspx">Student Transfer</a></li>
+      
+        <li><a href="Counselorcoursedetails.aspx">Course Details</a></li>
+           <li><a href="coursesummary.aspx">Course Summary</a></li> 
+         <%}
+     else if (Session["Centrerole"].ToString() == "Counselor")
+     {
+       %>
+     
+<% if (Session["centre_code"].ToString() == "ICB-101")
+     {
+       %>
+        
+
+<%} else{%>
+
+<li><a href="QuickAdmission.aspx">Express Enrollment</a></li>
+
+<%} %>
+        <li><a href="EnquiryType.aspx">Add Enquiry</a></li>
+        <li><a href="ViewEnquiry.aspx">View Enquiry</a></li>       
+        <li><a href="ViewAdmission.aspx">Enrollment Details</a></li>
+        
+        <hr />
+          <%if (Session["centre_code"].ToString() == "ich-107" || Session["centre_code"].ToString() == "ICH-107")
+         {
+         %>
+         <li><a href="icat.aspx">Change Installment Date</a></li>
+         <%}
+          %>
+         <li><a href="Receiptdetails.aspx">Receipts Details </a></li>
+         <li><a href="Breakage.aspx">Breakage Receipts </a></li>
+        <li><a href="InvoiceMenu.aspx">Invoice Details </a></li>
+        <hr />
+        <li><a href="MonthlyCollection.aspx">Monthly Collection Report</a></li>
+        <li><a href="dualinvoice.aspx">Multiple Invoice/Course Upgrade</a></li>
+        <li><a href="Extendnewcourse.aspx">Extend To New Course</a></li>
+         <%--<li><a href="exportoldtonew.aspx">Export OLD to NEW</a></li>--%>
+        <hr />
+        <li><a href="Counselorcoursedetails.aspx">Course Details</a></li> 
+         <li><a href="coursesummary.aspx">Course Summary</a></li> 
+         
+       
+        
+        <%}
+          else if (Session["Centrerole"].ToString() == "Technical Head")
+     {
+       %>    
+        <li><a href="ViewAdmission.aspx">Enrollment Details</a></li>
+        <li><a href="InvoiceMenu.aspx">Invoice Details </a></li>
+         <li><a href="studenttransfer.aspx">Student Transfer</a></li>
+           <li><a href="courseware1.aspx">FullCourse Details</a></li>
+              <li><a href="coursesummary.aspx">Course Summary</a></li> 
+        <%}
+         
+            
+            
+            
+            
+            
+        else if (Session["Centrerole"].ToString() == "Ipad")
+     {
+       %>    
+        <li><a href="Ipad-ViewEnquiry.aspx">View Enquiry</a></li>
+         <li><a href="Ipad-ViewAdmission.aspx">Enrollment Details</a></li>
+           <li><a href="Ipad-centerwisereport.aspx">Dashboard</a></li>
+             <li><a href="Ipad-Monthlycollection.aspx">Monthly collection</a></li>
+               <li><a href="Ipad-outstandingreport.aspx">Outstanding Report</a></li>
+        
+        <%}
+            
+            
+            
+            
+            
+            
+            
+            
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+          
+<% if (Session["centre_code"].ToString() == "ICB-101")
+     {
+       %>
+        
+
+<%} else{%>
+
+<li><a href="QuickAdmission.aspx">Express Enrollment</a></li>
+
+<%}%>
+
+         <li><a href="EnquiryType.aspx">Add Enquiry</a></li>
+        <li><a href="ViewEnquiry.aspx">View Enquiry</a></li>       
+        <li><a href="ViewAdmission.aspx">Enrollment Details</a></li>
+        <hr />
+          <%if (Session["centre_code"].ToString() == "ich-107" || Session["centre_code"].ToString() == "ICH-107")
+         {
+         %>
+         <li><a href="icat.aspx">Change Installment Date</a></li>
+         <%}
+          %>
+         <li><a href="Receiptdetails.aspx">Receipts Details </a></li>
+         <li><a href="Breakage.aspx">Breakage Receipts </a></li>
+           <li><a href="InvoiceMenu.aspx">Invoice Details </a></li>
+          <hr />
+           <li><a href="Extendnewcourse.aspx">Extend To New Course</a></li>
+               <li><a href="dualinvoice.aspx">Multiple Invoice/Course Upgrade</a></li>
+                <hr />
+      <li><a href="studenttransfer.aspx">Student Transfer</a></li>
+      <%--  <li><a href="exportoldtonew.aspx">Export OLD to NEW</a></li>--%>
+        <li><a href="Counselorcoursedetails.aspx">Course Details</a></li>
+           <li><a href="coursesummary.aspx">Course Summary</a></li> 
+        <%}
+        
+        
+        
+        
+        
+        
+          else if (Session["Centrerole"].ToString() == "Marketing")
+         { %>
+          
+ 
+        <li><a href="ViewEnquiry.aspx">View Enquiry</a></li>       
+        <li><a href="ViewAdmission.aspx">Enrollment Details</a></li>
+        <hr />
+   
+        <li><a href="Counselorcoursedetails.aspx">Course Details</a></li>
+           <li><a href="coursesummary.aspx">Course Summary</a></li> 
+        <%}
+        
+        
+        
+          %>
+          
+          
+          
+          
+</ul>
+</li>
+<%}
+%>
+<%if (Session["Centrerole"].ToString() == "SuperAdmin")
+         {
+         %>
+<li ><a href="#">Academic<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin")
+         {
+         %>
+        <li><a href="Course_New.aspx">Course Details</a></li>
+        <li><a href="Software_Details_New.aspx">Software Details</a></li>
+        <li><a href="Add_Moduledetails.aspx">Module Details</a></li>
+        <li><a href="Add_projectdetails.aspx">Project Details</a></li>
+        <li><a href="Add_bookdetails.aspx">Book Details</a></li>
+         <li><a href="courseware1.aspx">Full Course Details</a></li>
+        <hr />                
+        <li><a href="module_details.aspx">Assign Sotware To Module</a></li>  
+        <li><a href="Moduledetails.aspx">Assign Module To Course</a></li>
+          <li><a href="projectdetails.aspx">Assign Project To Module</a></li> 
+            <li><a href="Bookdetails.aspx">Assign Book To Course</a></li> 
+        <li><a href="Submodule_Details_New.aspx">Sub Module Details</a></li>
+        <li><a href="Holiday_New.aspx">Holiday Details</a></li>
+        <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+
+<%if (Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+<li ><a href="#">Academic<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <%if (Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+        <li><a href="Course_New.aspx">Course Details</a></li>
+        <li><a href="Software_Details_New.aspx">Software Details</a></li>
+        <li><a href="Add_Moduledetails.aspx">Module Details</a></li>
+        <li><a href="Add_projectdetails.aspx">Project Details</a></li>
+        <li><a href="Add_bookdetails.aspx">Book Details</a></li>
+         <li><a href="courseware1.aspx">Full Course Details</a></li>
+        <hr />                
+        <li><a href="module_details.aspx">Assign Sotware To Module</a></li>  
+        <li><a href="Moduledetails.aspx">Assign Module To Course</a></li>
+          <li><a href="projectdetails.aspx">Assign Project To Module</a></li> 
+            <li><a href="Bookdetails.aspx">Assign Book To Course</a></li> 
+        <li><a href="Submodule_Details_New.aspx">Sub Module Details</a></li>
+        <li><a href="Holiday_New.aspx">Holiday Details</a></li>
+        <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+
+
+<%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+<li ><a href="#">Branch Specification<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+         <li><a href="FacultyAvail.aspx">View Faculty Availabilty</a></li>
+         <li><a href="LabAvail.aspx">View Lab Availabilty</a></li>
+         <%}
+         else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+        <li><a href="FacultydetailsNew.aspx">Add Faculty Details</a></li>
+         <li><a href="Facultydetails.aspx">View Faculty Login </a></li>
+         <li><a href="FacultyAvail.aspx">View Faculty Availabilty</a></li>
+         <hr />
+        <li><a href="Addlab.aspx">Add Lab Details</a></li>
+        <li><a href="LabAvail.aspx">View Lab Availabilty</a></li>
+       
+        <%}
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+         <li><a href="Counselordetails.aspx">Add Counselor Login</a></li>
+        <li><a href="TechnicalHead.aspx">Add Technical Head Login</a></li>
+         <li><a href="marketing.aspx">Add Marketing Manager Details</a></li>
+         <hr />
+        <li><a href="FacultydetailsNew.aspx">Add Faculty Details</a></li>
+         <li><a href="Facultydetails.aspx">Add Faculty Login</a></li>
+         <li><a href="FacultyAvail.aspx">View Faculty Availabilty</a></li>
+             <hr />
+        <li><a href="Addlab.aspx">Add Lab Details</a></li>
+        <li><a href="LabAvail.aspx">View Lab Availabilty</a></li>
+        <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+
+<%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+<li ><a href="#">Batch Planning<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+           <li><a href="createnewbatch.aspx">Create New Batch</a></li>
+         
+          <li><a href="ViewbatchDetails.aspx">View Batch Details</a></li>
+             <li><a href="Editbatchslot.aspx">Edit Batch Details</a></li>
+          <hr />
+          <li><a href="Nonbatch.aspx">Add New Student To Running Batch</a></li>
+        
+          <li><a href="compensationbatch.aspx">Compensation Class</a></li>
+       <hr />
+           <li><a href="attendanceview.aspx">Batch Attendance </a></li>
+        <hr />
+       <li><a href="Feedback_request.aspx">Send Feedback </a></li>
+       <hr />
+         <li><a href="Assesment.aspx">Project Assessment</a></li>
+         <li><a href="viewAssesment.aspx">View Project Assessment</a></li>
+         <li><a href="bookrequest.aspx">BookIndent Request</a></li>
+         <%}
+         else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+         <li><a href="createnewbatch.aspx">Create New Batch</a></li>
+         
+          <li><a href="ViewbatchDetails.aspx">View Batch Details</a></li>
+             <li><a href="Editbatchslot.aspx">Edit Batch Details</a></li>
+          <hr />
+          <li><a href="Nonbatch.aspx">Add New Student To Running Batch</a></li>
+        
+          <li><a href="compensationbatch.aspx">Compensation Class</a></li>
+       <hr />
+           <li><a href="attendanceview.aspx">Batch Attendance </a></li>
+        <hr />
+       <li><a href="Feedback_request.aspx">Send Feedback </a></li>
+       <hr />
+         <li><a href="Assesment.aspx">Project Assessment</a></li>
+         <li><a href="viewAssesment.aspx">View Project Assessment</a></li>
+         <li><a href="bookrequest.aspx">BookIndent Request</a></li>
+          <%}
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+          <li><a href="createnewbatch.aspx">Create New Batch</a></li>
+          
+          <li><a href="ViewbatchDetails.aspx">View Batch Details</a></li>
+           <li><a href="Editbatchslot.aspx">Edit Batch Details</a></li>
+           <hr />
+          <li><a href="Nonbatch.aspx">Add New Student To Running Batch</a></li>
+       
+          <li><a href="compensationbatch.aspx">Compensation Class</a></li>
+         <hr />
+          
+           <li><a href="attendanceview.aspx">Batch Attendance </a></li>
+           <li><a href="bookrequest.aspx">BookIndent Request</a></li>
+          <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+
+
+
+  <%if (Session["Centrerole"].ToString() == "R&D")
+         {
+         %>
+         <li ><a href="#">Project Details<span class="arrowDown">&nbsp;</span></a>
+      <ul>            
+
+        <li><a href="viewAssesment.aspx">View Project Assessment</a></li>
+           </ul>
+    </li>
+        
+        <%}
+          %>
+
+        <%if (Session["Centrerole"].ToString() == "Faculty")
+         {
+         %>
+         <li ><a href="#">Attendance Details<span class="arrowDown">&nbsp;</span></a>
+      <ul>            
+        <li><a href="Attendancebatchcode.aspx">Batch details</a></li>
+        <li><a href="attendanceview.aspx">View Batch Attendance details</a></li>
+        <li><a href="progress.aspx">Student Progress</a></li>
+        <li><a href="Assesment.aspx">Project Assessment</a></li>
+        <li><a href="Feedback_request.aspx">Send Feedback</a></li>
+           </ul>
+    </li>
+        
+        <%}
+          %>
+          
+        
+          
+              <%if (Session["Centrerole"].ToString() == "Certificate")
+         {
+         %>
+         <li ><a href="#">Project Details<span class="arrowDown">&nbsp;</span></a>
+      <ul>            
+       
+       <li><a href="viewAssesment.aspx">View Project Assessment</a></li>
+           </ul>
+    </li>
+        
+        <%}
+          %>
+          
+          
+          
+          
+<%if (Session["Centrerole"].ToString() == "Marketing" || Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+<li ><a href="#">Reports<span class="arrowDown">&nbsp;</span></a>
+      <ul>
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+             <li><a href="Centerwisereport.aspx">Centerwise Report</a></li>
+            <li><a href="MonthlyCollection.aspx">Monthly Collection Report</a></li>
+            <li><a href="outstandingreport.aspx">Outstanding Report</a></li>
+               <li><a href="regularcollectionreport.aspx">Regular Projection Report</a></li>
+            <li><a href="enrollmentreport.aspx">Enrolled & Unbatched Report</a></li>
+            <hr />
+            <li><a href="ViewbatchDetails.aspx">View Batch Report</a></li>
+            <hr />
+         <li><a href="studentreport.aspx">Student Report</a></li>
+         <li><a href="facultyreport.aspx">Faculty periodic Report</a></li>
+          <hr />
+           <li><a href="leavereport.aspx">Student Leave Report</a></li>
+           <li><a href="transferreport.aspx">Student Transfer Report</a></li>
+           <li><a href="dropped.aspx">Student Dropped Report</a></li>
+            <hr />
+          <li><a href="Viewfeedback.aspx">View Feedback Report</a></li>
+        
+         
+         <%}
+         else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+          <li><a href="ViewbatchDetails.aspx">View Batch Report</a></li>
+            <hr />
+            <li><a href="studentreport.aspx">Student Report</a></li>
+         <li><a href="facultyreport.aspx">Faculty periodic Report</a></li>
+          <hr />
+           <li><a href="leavereport.aspx">Student Leave Report</a></li>
+             <li><a href="transferreport.aspx">Student Transfer Report</a></li>
+           <li><a href="breakreport.aspx">Student Break Report</a></li>
+           <li><a href="dropped.aspx">Student Dropped Report</a></li>
+           <li><a href="enrollmentreport.aspx">Enrolled & Unbatched Report</a></li>
+       <hr />
+          <li><a href="Viewfeedback.aspx">View Feedback Report</a></li>
+        
+       
+          <%}
+                 else if (Session["Centrerole"].ToString() == "Marketing")
+         { %>
+         
+           <li><a href="Centerwisereport.aspx">Centerwise Report</a></li>
+            <li><a href="MonthlyCollection.aspx">Monthly Collection Report</a></li>
+            <li><a href="outstandingreport.aspx">Outstanding Report</a></li>
+       
+        
+       
+          <%}
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+         <li><a href="Centerwisereport.aspx">Centerwise Report</a></li>
+            <li><a href="MonthlyCollection.aspx">Monthly Collection Report</a></li>
+            <li><a href="outstandingreport.aspx">Outstanding Report</a></li>
+            <hr />
+            <li><a href="ViewbatchDetails.aspx">View Batch Report</a></li>
+            <hr />
+         <li><a href="studentreport.aspx">Student Report</a></li>
+         <li><a href="facultyreport.aspx">Faculty periodic Report</a></li>
+          <hr />
+          <li><a href="leavereport.aspx">Student Leave Report</a></li>
+            <li><a href="transferreport.aspx">Student Transfer Report</a></li>
+           <li><a href="breakreport.aspx">Student Break Report</a></li>
+           <li><a href="dropped.aspx">Student Dropped Report</a></li>
+           <li><a href="enrollmentreport.aspx">Enrolled & Unbatched Report</a></li>
+          <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+          
+          
+          
+          
+         
+ <div class="setting">
+<li><a href="#">Setting&nbsp;<span class="logout1" title="Account Setting"><img src="../layout/logoff.png" width="18px" height="18px" /></span></a> 
+     <ul class="last">
+       <%if (Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Counselor")
+         {
+         %>
+         <li ><a href="Changemaster.aspx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master Password</a> </li>
+          <%}
+          %>
+           <%if (Session["Centrerole"].ToString() == "SuperAdmin")
+         {
+         %>
+         <li ><a href="imageupload.aspx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change Banner</a> </li>
+          <%}
+          %>
+     <li ><a href="Changeyourpassword.aspx"><div id="changepass"><img src="../layout/changepass.png" width="20px" height="20px" />Change Password </div></a> </li>
+    
+    
+    
+     <li ><asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton1_Click"><div class="logout" title="Logout"><img src="../layout/logout.png" width="20px" height="20px" />&nbsp;&nbsp;Logout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></asp:LinkButton></li>
+      </ul> 
+       </li>
+</div>
+</ul>
+
+<!--navigation end-->
+<div id="logged" align="right">
+<table class="centresa" id="getcentresa" style="vertical-align:middle; margin:1px">
+<tr>
+<td >
+    &nbsp;<asp:Label ID="lblSearch" runat="server" Text="Search By Centre" Font-Bold="True" ForeColor="White"></asp:Label>
+    </td>
+<td >
+    &nbsp;<asp:DropDownList ID="v" runat="server" AutoPostBack="True" OnSelectedIndexChanged="v_SelectedIndexChanged1" >
+    </asp:DropDownList>
+    </td>
+    <td>  
+        
+        <asp:Label ID="lblCentre" Visible="False" runat="server" Font-Bold="True" ForeColor="White"></asp:Label>
+            </td>
+</tr></table>
+    <table class="tablelog">
+        <tr>
+        <td>
+            <asp:HiddenField ID="HiddenField1" runat="server" />
+            &nbsp;
+        </td>
+            <td >
+             <img src="../layout/admin_icon.png" alt="log" /></td>
+            <td style="width: auto" >
+                &nbsp;&nbsp;<asp:Label ID="Label1" runat="server" Text="Logged in as:" ForeColor="#f0f7c9"></asp:Label></td>
+            <td >
+    <asp:Label ID="lbl_username" runat="server" Text="Label" Font-Bold="True" ForeColor="White"></asp:Label></td>
+            <td >&nbsp;&nbsp;
+    <asp:Label ID="Label4" runat="server" Text="Location:" ForeColor="#f0f7c9"></asp:Label></td>
+            <td id="location" >
+    <asp:Label ID="lbl_location" runat="server" Text="Label" Font-Bold="True" ForeColor="White"></asp:Label></td>
+            <td >&nbsp;&nbsp;
+    <asp:Label ID="Label3" runat="server" Text="Role:" ForeColor="#f0f7c9"></asp:Label></td>
+            <td  >
+    <asp:Label ID="lbl_role" runat="server" Text="Label" Font-Bold="True" ForeColor="White"></asp:Label></td>
+            <td style="width: 5px">
+                &nbsp;&nbsp;
+            </td>
+            <td>
+                &nbsp; &nbsp; &nbsp;&nbsp;
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+<ul id="shortcut">
+<%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+<li class="toolicon"><a href="ViewAdmission.aspx"><img src="../layout/admission.png" title="Enrollment Details" alt="Admission"  />Admission</a></li>
+<li class="toolicon"><a href="Course_New.aspx"><img src="../layout/course.png" width="16px"  title="Course Details" alt="Course Details"  />Courses</a></li>
+
+<li class="toolicon"><a href="ViewbatchDetails.aspx"><img src="../layout/attendance.png" title=" BatchSchedule" alt="BatchSchedule"  />View Batch Details</a></li>
+<li class="toolicon"><a href="LabAvail.aspx"><img src="../layout/computer_icon.png" title=" LabDetails" alt="LabDetails"  />Lab Details</a></li>
+<li class="toolicon"><a href="FacultyAvail.aspx"><img src="../layout/faculty_icon.png" title=" FacultyAvailable" alt="FacultyAvailable"  />Faculty Available</a>
+
+<%}
+      
+      
+    else if (Session["Centrerole"].ToString() == "Ipad")
+         { %>
+         </li>
+      
+<li class="toolicon"><a href="Ipad-ViewEnquiry.aspx"><img src="../layout/enquiry.png" title=" EnquiryDetails" alt="EnquiryDetails"  />Enquiry Details</a>
+<li class="toolicon"><a href="Ipad-ViewAdmission.aspx"><img src="../layout/admission.png" title="Enrollment Details" alt="Admission"  />Admission</a></li>
+
+<%}
+      
+      
+    else if (Session["Centrerole"].ToString() == "R&D")
+         { %>
+         </li>
+      
+<li class="toolicon"><a href="viewAssesment.aspx"><img src="../layout/enquiry.png" title=" EnquiryDetails" alt="EnquiryDetails"  />View Project Assesment</a>
+
+<%}  
+      
+      
+      
+      
+      
+      
+      
+      
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+         </li>
+         <li class="toolicon"><a href="ViewEnquiry.aspx"><img src="../layout/enquiry.png" title=" EnquiryDetails" alt="EnquiryDetails"  />Enquiry Details</a>
+         <li class="toolicon"><a href="ViewAdmission.aspx"><img src="../layout/admission.png" title="Enrollment Details" alt="Admission"  />Admission</a></li>
+         <li class="toolicon"><a href="LabAvail.aspx"><img src="../layout/computer_icon.png" title=" LabDetails" alt="LabDetails"  />Lab Details</a></li>
+<li class="toolicon"><a href="FacultyAvail.aspx"><img src="../layout/faculty_icon.png" title=" FacultyAvailable" alt="FacultyAvailable"  />Faculty Available</a></li>
+<li class="toolicon"><a href="attendanceview.aspx"><img src="../layout/attendance_list.png" title=" attendance" alt="attendance"  />Attendance</a></li>
+<li class="toolicon"><a href="ViewbatchDetails.aspx"><img src="../layout/attendance.png" title=" BatchSchedule" alt="BatchSchedule"  />View Batch Details</a></li>
+
+
+
+<%}
+  else if (Session["Centrerole"].ToString() == "Counselor")
+         { %>
+         </li>
+         <li class="toolicon"><a href="EnquiryType.aspx"><img src="../layout/Administrator-icon.png" title="Add Enquiry" alt="Add Enquiry"  />Add Enquiry</a></li>
+         <li class="toolicon"><a href="ViewAdmission.aspx"><img src="../layout/admission.png" title="Enrollment Details" alt="Admission"  />Admission</a>
+</li>
+<li class="toolicon"><a href="ViewEnquiry.aspx"><img src="../layout/enquiry.png" title=" EnquiryDetails" alt="EnquiryDetails"  />Enquiry Details</a>
+
+<%}
+  else if (Session["Centrerole"].ToString() == "Faculty")
+         { %>
+</li>
+<li class="toolicon"><a href="attendanceview.aspx"><img src="../layout/attendance_list.png" title=" attendance" alt="attendance"  />Attendance</a>
+
+<%}
+  else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+         </li>
+         <li class="toolicon"><a href="ViewAdmission.aspx"><img src="../layout/admission.png" title="Enrollment Details" alt="Admission"  />Admission</a></li>
+<li class="toolicon"><a href="attendanceview.aspx"><img src="../layout/attendance_list.png" title=" attendance" alt="attendance"  />Attendance</a></li>
+<li class="toolicon"><a href="ViewbatchDetails.aspx"><img src="../layout/attendance.png" title=" BatchSchedule" alt="BatchSchedule"  />View Batch Details</a></li>
+<li class="toolicon"><a href="LabAvail.aspx"><img src="../layout/computer_icon.png" title=" LabDetails" alt="LabDetails"  />Lab Details</a></li>
+<li class="toolicon"><a href="FacultyAvail.aspx"><img src="../layout/faculty_icon.png" title=" FacultyAvailable" alt="FacultyAvailable"  />Faculty Available</a></li>
+<li class="toolicon"><a href="ViewEnquiry.aspx"><img src="../layout/enquiry.png" title=" EnquiryDetails" alt="EnquiryDetails"  />Enquiry Details</a>
+
+
+<%
+}
+ %>
+</li>
+</ul>
+
+<div class="panel" >
+    <table>
+        <tr id="drop" runat="server">
+            <td style="width: 241px; height: 18px">
+<img src="layout/icon-8.png" alt="ico" />
+    <asp:LinkButton ID="lnk_drop" runat="server" OnClick="LinkButton1_Click1">Drop Request</asp:LinkButton></td>
+            <td style="width: 18px; height: 18px">
+                <asp:Label ID="lbl_drop" style=" text-align:center;border-radius: 10px 10px 10px 10px;" runat="server" BackColor="Red" BorderColor="Maroon" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="White" Width="17px">0</asp:Label></td>
+        </tr>
+        <tr id="leave" runat="server">
+            <td style="width: 241px">
+            <img src="layout/icon-9.png" alt="ico" />
+    <asp:LinkButton ID="lnk_leave" runat="server" OnClick="lnk_leave_Click">Leave Request</asp:LinkButton></td>
+            <td style="width: 18px">
+                <asp:Label ID="lbl_leave" style=" text-align:center;border-radius: 10px 10px 10px 10px;" runat="server" BackColor="Red" BorderColor="Maroon" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="White" Width="17px">0</asp:Label></td>
+        </tr>
+        <tr  id="assesment" runat="server">
+            <td style="width: 241px">
+            <img src="layout/icon-10.png" alt="ico" />
+    <asp:LinkButton ID="lnk_assesment" runat="server" OnClick="lnk_assesment_Click" Width="115px">Assesment Request</asp:LinkButton></td>
+            <td style="width: 18px">
+                <asp:Label ID="lbl_assesment" style=" text-align:center;border-radius: 10px 10px 10px 10px;" runat="server" BackColor="Red" BorderColor="Maroon" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="White" Width="17px">0</asp:Label></td>
+        </tr>
+        <tr  id="update" runat="server">
+            <td style="width: 241px; height: 18px">
+            <img src="layout/icon-11.png" alt="ico" />
+    <asp:LinkButton ID="lnk_update" runat="server" OnClick="lnk_update_Click">Recommened To Update</asp:LinkButton></td>
+            <td style="width: 18px; height: 18px">
+                <asp:Label ID="lbl_update" style=" text-align:center;border-radius: 10px 10px 10px 10px;" runat="server" BackColor="Red" BorderColor="Maroon" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="White" Width="17px">0</asp:Label></td>
+        </tr>
+        <tr id="transd" runat="server" visible="false">
+            <td style="width: 241px; height: 18px">
+                &nbsp;<img src="layout/icon-11.png" alt="ico" />
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click2" Style="left: -6px; top: 0px;">Transfer Request</asp:LinkButton></td>
+            <td style="width: 18px; height: 18px">
+                <asp:Label ID="lbl_trans" style=" text-align:center;border-radius: 10px 10px 10px 10px;"  BackColor="Red" BorderColor="Maroon" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="White" Width="17px" runat="server" Text="0"></asp:Label></td>
+        </tr>
+           <tr id="book" runat="server" visible="false">
+            <td style="width: 241px; height: 18px">
+                &nbsp;<img src="layout/icon-11.png" alt="ico" />
+                <asp:LinkButton ID="LinkButton3" runat="server"  Style="left: -6px; top: 0px;" OnClick="LinkButton3_Click">Book Indent Request</asp:LinkButton></td>
+            <td style="width: 18px; height: 18px">
+                <asp:Label ID="lbl_book" style=" text-align:center;border-radius: 10px 10px 10px 10px;"  BackColor="Red" BorderColor="Maroon" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="White" Width="17px" runat="server" Text="0"></asp:Label></td>
+        </tr>
+    </table>
+
+
+
+</div>
+ 
+<p class="flip" id="enroll" runat="server">
+Notification
+<asp:Label ID="lbl_notcount"   runat="server" CssClass="notifyBg"  >0</asp:Label>
+  
+    </p>
+
+
+
+
+
+<div class="content_wrapper">
+<div class="treecontent">
+<ul id="Ul1" class="filetree">
+
+  <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+    <li class="closed" ><span class="folder">Centre</span>
+      <ul class="submenu">
+        <li><a href="Dashboard.aspx"><span class="file">Dashboard</span></a></li>
+  <li><a href="addcentre.aspx"><span class="file">Add Centre</span></a></li>
+  <li><a href="centreuserlogin.aspx"><span class="file">View Centre</span></a></li>
+ <li><a href="CreateManager.aspx"><span class="file">Create Manager</span></a></li>
+<li><a href="regionhead.aspx"><span class="file">Create RegionHead</span></a></li>
+<li><a href="RandD.aspx"><span class="file">Create R & D Staff</span></a></li>
+<li><a href="certificatelogin.aspx"><span class="file">Create Certificate Dept. Staff</span></a></li>
+<li><a href="Printingdepartment.aspx"><span class="file">Create Printing Dept. Staff</span></a></li>
+<li><a href="Extendnewcourse.aspx"><span class="file">Extend to New Course</span></a></li>
+<li><a href="upgrade.aspx"><span class="file">Course Upgrade</span></a></li>
+<li><a href="SiteStatus.aspx"><span class="file">Make Offline</span></a></li>
+<li><a href="AddInstallment.aspx"><span class="file">Add Installment</span></a></li>
+<li><a href="Change_Receipt_Status.aspx"><span class="file">Update Receipt Status</span></a></li>
+ 
+      <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="initialmonthlycollection.aspx"><span style="display:none; width:0px; height:0px;" class="file"></span></a>
+
+</ul>
+</li>
+<%}
+  %>
+  <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Marketing" || Session["Centrerole"].ToString() == "Counselor" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Ipad" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+  <li class="closed" ><span class="folder">Admission</span>
+      <ul class="submenu">
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin")
+         {
+         %>
+          <li><a href="ViewEnquiry.aspx"><span class="file">View Enquiry</span></a></li> 
+         <li><a href="ViewAdmission.aspx"><span class="file">Enrollment Details</span></a></li>
+         <%}
+     else if (Session["Centrerole"].ToString() == "Counselor")
+     {
+       %>
+          <li><a href="QuickAdmission.aspx"><span class="file">Express Enrollment</span></a></li>
+              <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="QuickAdmission.aspx?res=upt#tabs-5"><span style="display:none; width:0px; height:0px;" class="file"></span></a></li>
+
+        <li><a href="EnquiryType.aspx"><span class="file">AddEnquiry</span></a></li>
+        <li><a href="ViewEnquiry.aspx"><span class="file">View Enquiry</span></a></li>
+           
+        <li><a href="ViewAdmission.aspx"><span class="file">Enrollment Details</span></a></li>
+         <li><a href="Receiptdetails.aspx"><span class="file">Receipts Details</span> </a></li>
+        <li><a href="breakage.aspx"><span class="file">Breakage Receipts</span> </a></li>
+      
+        <li><a href="InvoiceMenu.aspx"><span class="file">Invoice Details </span></a></li>
+        <li><a href="masterpassword.aspx"><span class="file">Monthly Collection Report</span></a></li>
+         <li><a href="dualinvoice.aspx"><span class="file">Multiple Invoice/Course Upgrade</span></a></li>
+           <li><a href="Extendnewcourse.aspx"><span class="file">Extend To New Course</span></a></li>
+        <li><a href="Counselorcoursedetails.aspx"><span class="file">Course Details</span> </a></li>
+       
+         <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="TeleEnquiry.aspx?res=upd"><span style="display:none; width:0px; height:0px;" class="file">TeleEnquiry</span></a></li>
+         <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="TeleEnquiry.aspx?res=ins"><span style="display:none; width:0px; height:0px;" class="file">TeleEnquiry</span></a></li>
+        <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="Droppedstudentdetails.aspx"><span style="display:none; width:0px; height:0px;" class="file">Dropped stdents</span></a></li>
+        <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="Followingstudentdetails.aspx"><span style="display:none; width:0px; height:0px;" class="file">Dropped stdents</span></a>
+ </li>
+        <%}
+         else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+       
+        <li><a href="ViewAdmission.aspx"><span class="file">Enrollment Details</span></a></li>
+        <li><a href="InvoiceMenu.aspx"><span class="file">Invoice Details </span></a></li>
+           <li><a href="studenttransfer.aspx"><span class="file">Student Transfer</span></a></li>
+        <%}
+            
+            
+         
+            
+            
+            
+               
+       else if (Session["Centrerole"].ToString() == "Ipad")
+         { %>
+       
+        </li>
+       
+        <li><a href="Ipad-ViewEnquiry.aspx"><span class="file">View Enquiry</span></a></li>  
+
+         <li><a href="Ipad-ViewAdmission.aspx"><span class="file">Enrollment Details</a></li>
+           <li><a href="Ipad-centerwisereport.aspx"><span class="file">Dashboard</a></li>
+             <li><a href="Ipad-Monthlycollection.aspx"><span class="file">Monthly collection</a></li>
+               <li><a href="Ipad-outstandingreport.aspx"><span class="file">Outstanding Report</a>
+         
+        <%}
+            
+            
+           
+            
+            
+             else if (Session["Centrerole"].ToString() == "Marketing")
+         { %>
+        
+   
+        </li>
+        
+   
+        <li><a href="ViewEnquiry.aspx"><span class="file">View Enquiry</span></a></li>   
+        <li><a href="AddEnquiry.aspx"><span class="file">Walkin Enquiry</span></a></li>
+        <li><a href="TeleEnquiry.aspx"><span class="file">TeleEnquiry</span></a></li>
+    
+        <li><a href="ViewAdmission.aspx"><span class="file">Enrollment Details</span></a></li>
+ 
+      
+        <li><a href="Counselorcoursedetails.aspx"><span class="file">Course Details</span> </a></li>
+           <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="initialmonthlycollection.aspx"><span style="display:none; width:0px; height:0px;" class="file"></span></a>
+
+        <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="Droppedstudentdetails.aspx"><span style="display:none; width:0px; height:0px;" class="file">Dropped stdents</span></a></li>
+        <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="Followingstudentdetails.aspx"><span style="display:none; width:0px; height:0px;" class="file">Dropped stdents</span></a>
+
+        <%}
+            
+            
+             
+            
+            
+            
+            
+            
+            
+            
+            
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+         </li>
+          <li><a href="QuickAdmission.aspx"><span class="file">Express Enrollment</span></a></li>
+              <li  style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="QuickAdmission.aspx?res=upt#tabs-5"><span style="display:none; width:0px; height:0px;" class="file"></span></a></li>
+
+         <li><a href="EnquiryType.aspx"><span class="file">Add Enquiry</span></a></li>
+        <li><a href="ViewEnquiry.aspx"><span class="file">View Enquiry</span></a></li>   
+       
+        <li><a href="ViewAdmission.aspx"><span class="file">Enrollment Details</span></a></li>
+          <li><a href="Receiptdetails.aspx"><span class="file">Receipts Details</span> </a></li>
+            <li><a href="breakage.aspx"><span class="file">Breakage Receipts</span> </a></li>
+       
+          <li><a href="InvoiceMenu.aspx"><span class="file">Invoice Details </span></a></li>
+        <li><a href="Extendnewcourse.aspx"><span class="file">Extend To New Course</span></a></li>
+            <li><a href="dualinvoice.aspx"><span class="file">Multiple Invoice/Course Upgrade</span></a></li>
+             <li><a href="studenttransfer.aspx"><span class="file">Student Transfer</span></a></li>
+        <li><a href="Counselorcoursedetails.aspx"><span class="file">Course Details</span> </a></li>
+           <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="initialmonthlycollection.aspx"><span style="display:none; width:0px; height:0px;" class="file"></span></a>
+        <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="Droppedstudentdetails.aspx"><span style="display:none; width:0px; height:0px;" class="file">Dropped stdents</span></a></li>
+        <li style="display:none; width:0px; height:0px;"><a style="display:none; width:0px; height:0px;" href="Followingstudentdetails.aspx"><span style="display:none; width:0px; height:0px;" class="file">Dropped stdents</span></a></li>
+
+        <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+<%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+  <li class="closed" ><span class="folder">Academic</span>
+      <ul class="submenu">
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+        <li><a href="Course_New.aspx"><span class="file">Course Details</span></a></li>
+        <li><a href="Software_Details_New.aspx"><span class="file">Software Details</span></a></li>
+        <li><a href="Add_Moduledetails.aspx"><span class="file">Module Details</span></a></li> 
+        <li><a href="Add_projectdetails.aspx"><span class="file">Project Details</span></a></li> 
+         <li><a href="Add_bookdetails.aspx"><span class="file">Book Details</span></a></li>  
+         <li><a href="courseware1.aspx"><span class="file">Full Course Details</span></a></li>                
+        <li><a href="module_details.aspx"><span class="file">Assign Software To Module</span></a></li>  
+        <li><a href="Moduledetails.aspx"><span class="file">Assign Module To Course</span></a></li>
+            <li><a href="projectdetails.aspx"><span class="file">Assign Project To Module</span></a></li>
+            <li><a href="Bookdetails.aspx"><span class="file">Assign Book To Course</span></a></li>
+        <li><a href="Submodule_Details_New.aspx"><span class="file">Sub Module Details</span></a></li>
+        <li><a href="Holiday_New.aspx"><span class="file">Holiday Details</span></a></li>
+        <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+<%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+  <li class="closed" ><span class="folder">Branch Specification</span>
+      <ul class="submenu">
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+         <li><a href="FacultyAvail.aspx"><span class="file">Faculty Availabilty</span></a></li>
+         <li><a href="LabAvail.aspx"><span class="file">Lab Availabilty</span></a></li>
+         <%}
+         else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+        <li><a href="FacultydetailsNew.aspx"><span class="file">Add Faculty Details</span></a></li>
+         <li><a href="Facultydetails.aspx"><span class="file">View Faculty Login</span></a></li>
+         <li><a href="FacultyAvail.aspx"><span class="file">View Faculty Availabilty</span></a></li>
+        <li><a href="Addlab.aspx"><span class="file">Add Lab Details</span></a></li>
+        <li><a href="LabAvail.aspx"><span class="file">View Lab Availabilty</span></a></li>
+        <%}
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+  <li><a href="Counselordetails.aspx"><span class="file">Add Counselor Login</span></a></li>
+        <li><a href="TechnicalHead.aspx"><span class="file">Add Technical Head Login</span></a></li>
+          <li><a href="marketing.aspx"><span class="file">Add Marketing Manager Details</span></a></li>
+        <li><a href="FacultydetailsNew.aspx"><span class="file">Add Faculty Details</span></a></li>
+         <li><a href="Facultydetails.aspx"><span class="file">Add Faculty Login</span></a></li>
+         <li><a href="FacultyAvail.aspx"><span class="file">View Faculty Availabilty</span></a></li>
+        <li><a href="Addlab.aspx"><span class="file">Add Lab Details</span></a></li>
+        <li><a href="LabAvail.aspx"><span class="file">View Lab Availabilty</span></a></li>
+        <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+
+<%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+  <li class="closed" ><span class="folder">Batch Planning</span>
+      <ul class="submenu">
+      <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+        <%-- <li><a href="ViewbatchDetails.aspx"><span class="file">View Batch Details</span></a></li>--%>
+         <li><a href="schedulebatch.aspx"><span class="file">Batch Schedule</span></a></li>
+         <li><a href="attendanceview.aspx"><span class="file">Batch Attendance </span></a>
+         <%}
+         else if (Session["Centrerole"].ToString() == "Technical Head")
+         { %>
+</li>
+         
+         
+        <li><a href="createnewbatch.aspx"><span class="file">Create New Batch</span></a>
+          <%--<li><a href="ViewbatchDetails.aspx"><span class="file">View Batch Details</span></a></li>--%>
+          </li>
+         
+          <li><a href="Nonbatch.aspx"><span class="file">Add New Student To Running Batch</span></a></li>
+         
+          
+           
+                   <li><a href="Assesment.aspx"><span class="file">Project Assessment</span></a></li>
+                    <li><a href="Viewassesment.aspx"><span class="file">View Project Assesment</span></a></li>
+         <li><a href="Bookrequest.aspx"><span class="file">BookIndent Request</span></a></li>
+         
+          <%}
+         else if (Session["Centrerole"].ToString() == "CentreManager")
+         { %>
+            <li><a href="createnewbatch.aspx"><span class="file">Create New Batch</span></a></li>
+         <%-- <li><a href="ViewbatchDetails.aspx"><span class="file">View Batch Details</span></a></li>--%>
+         
+          <li><a href="Nonbatch.aspx"><span class="file">Add New Student To Running Batch</span></a></li>
+          <li><a href="Bookrequest.aspx"><span class="file">BookIndent Request</span></a></li>
+            
+                  
+          <%}
+          %>
+</ul>
+</li>
+<%}
+%>
+
+        <%if (Session["Centrerole"].ToString() == "Faculty")
+         {
+         %>
+         
+
+           <li class="closed" ><span class="folder">Attendance Details</span>
+      <ul class="submenu">            
+         <%--<li><a href="Attendancebatchcode.aspx"><span class="file">Batch details</span></a></li>--%>
+        <%-- <li><a href="attendanceview.aspx"><span class="file">View Batch Attendance details</span></a></li>--%>
+         <%--<li><a href="progress.aspx"><span class="file">Student Progress</span></a></li>--%>
+         <%--<li><a href="Assesment.aspx"><span class="file">Project Assessment</span></a></li>--%>
+  <%--<li><a href="Feedback_request.aspx"><span class="file">Send Feedback</span></a></li>--%>
+           </ul>
+       <%}
+%>
+          <%if (Session["Centrerole"].ToString() == "R&D")
+         {
+         %>
+         
+
+           <li class="closed" ><span class="folder">Project Details</span>
+      <ul class="submenu">            
+        <li><a href="Viewassesment.aspx"><span class="file">View Project Assesment</span></a></li>
+     
+           </ul>
+       <%}
+%>
+          
+           <%if (Session["Centrerole"].ToString() == "SuperAdmin" || Session["Centrerole"].ToString() == "Technical Head" || Session["Centrerole"].ToString() == "CentreManager" || Session["Centrerole"].ToString() == "Faculty" || Session["Centrerole"].ToString() == "Counselor" || Session["Centrerole"].ToString() == "Region Head")
+         {
+         %>
+     
+  </li>
+     
+  <li class="closed"><span class="folder">Reports</span>
+  <ul class="submenu"> 
+  <li><a href="masterpassword.aspx"><span class="file">Centerwise Report</span></a></li>
+        <li><a href="masterpassword.aspx"><span class="file">Monthly Collection Report</span></a></li>
+        <li><a href="masterpassword.aspx"><span class="file">Outstanding Report</span></a></li>
+         <li><a href="studentreport.aspx"><span class="file">Student Report</span></a></li>
+          
+           <li><a href="leavereport.aspx"><span class="file">Student Leave Report</span></a></li>
+            <li><a href="transferreport.aspx"><span class="file">Student Transfer Report</span></a></li>
+            <li><a href="breakreport.aspx"><span class="file">Student Break Report</span></a></li>
+            <li><a href="dropped.aspx"><span class="file">Student Dropped Report</span></a></li>
+</ul>
+</li>
+<%}
+%>
+</ul>
+</div>
+<div class="content_place1">
+
+   <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+   </asp:contentplaceholder>
+   </div>
+</div>
+<div class="bottom_roundcorner"></div>
+
+<div id="footer"><p>&copy; 2010 Image Infotainment Limited. All rights reserved.</p></div>
+<!--wrapper end-->
+    </form>
+    <script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$(".gallery a[rel^='prettyPhoto']").prettyPhoto({theme:'facebook'});
+		});
+		
+</script>
+
+</body>
+</html>

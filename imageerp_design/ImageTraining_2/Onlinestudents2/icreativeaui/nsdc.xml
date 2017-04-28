@@ -1,0 +1,243 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <States>Andaman and Nicobar Islands</States>   
+    <Sector_Covered>Agriculture</Sector_Covered>
+    <Skilling_Category>Training Partner - General</Skilling_Category>
+    
+  </Table>
+  <Table>
+    <States>Andhra Pradesh</States>    
+    <Sector_Covered>Alternative Energy</Sector_Covered>
+    <Skilling_Category>Sector Skill Council Affiliated - General</Skilling_Category>
+   
+
+  </Table>
+  <Table>
+    <States>Arunachal Pradesh</States>  
+    <Sector_Covered>Auto and Auto Components</Sector_Covered>
+    <Skilling_Category>School</Skilling_Category>	
+   
+
+  </Table>
+  <Table>
+    <States>Assam</States>    
+    <Sector_Covered>Banking and Financial Services</Sector_Covered>
+    <Skilling_Category>University Project</Skilling_Category>
+    
+
+  </Table>
+  <Table>
+    <States>Bihar</States>   
+    <Sector_Covered>Building, Construction and Real Estate Services</Sector_Covered>
+    <Skilling_Category>Skill Mission - General</Skilling_Category>
+    
+
+  </Table>
+  <Table>
+    <States>Chandigarh</States>   
+    <Sector_Covered>Capital Goods</Sector_Covered>
+    <Skilling_Category>Corporate Paid - Up skilled</Skilling_Category>
+    
+
+  </Table>
+  
+  <Table>
+    <States>Chhattisgarh</States>    
+    <Sector_Covered>Education and Skill Development Services</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - School 9th class</Skilling_Category>
+
+
+  </Table>
+  <Table>
+    <States>Dadra and Nagar Haveli</States>   
+    <Sector_Covered>Electronics and IT Hardware</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - School 10th class</Skilling_Category>
+    <Center_Code>ISM-101</Center_Code>		
+   
+
+  </Table>
+  <Table>
+    <States>Daman and Diu</States>   
+    <Sector_Covered>Engineering</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - School 11th class</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Delhi</States>   
+    <Sector_Covered>Enterprenurial Skills</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - School 12th class</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Goa</States>   
+    <Sector_Covered>Food Processing/Cold Chain/Refrigeration</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University Grad 1st year</Skilling_Category>
+    
+  </Table>
+  <Table>
+    <States>Gujarat</States>    
+    <Sector_Covered>Furniture and Furnishings</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University Grad 2nd year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Haryana</States>   
+    <Sector_Covered>Gems and Jewellery</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University Grad 3rd year</Skilling_Category>
+  
+  </Table>
+  <Table>
+    <States>Himachal Pradesh</States>   
+    <Sector_Covered>Government</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University BA/BCOM/BE/BTECH 1st year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Jammu and Kashmir</States>    
+    <Sector_Covered>Handlooms and Handicrafts</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University BA/BCOM/BE/BTECH 2nd year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Jharkhand</States>   
+    <Sector_Covered>Healthcare</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University BA/BCOM/BE/BTECH 3rd year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Karnataka</States>    
+    <Sector_Covered>Informal Sectors (Domestic help, Beauticians, Facility Management)</Sector_Covered>
+    <Skilling_Category>NSDC Training Partner - University BA/BCOM/BE/BTECH 4th year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Kerala</States>   
+    <Sector_Covered>Infrastructure (Transport, Energy, Water &amp; Sanitation, Communication, Social &amp; Commercial)</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - School 9th class</Skilling_Category>
+  
+  </Table>
+  <Table>
+    <States>Lakshadweep</States>   
+    <Sector_Covered>IT and ITES</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - School 10th class</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Madhya Pradesh</States>   
+    <Sector_Covered>Leather and Leather goods</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - School 11th class</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Maharashtra</States>    
+    <Sector_Covered>Manufacturing</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - School 12th class</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Manipur</States>    
+    <Sector_Covered>Media and Entertainment</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - University Grad Ist year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Meghalaya</States>    
+    <Sector_Covered>Organised Retail</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - University Grad 2nd year</Skilling_Category>
+    
+  </Table>
+  <Table>
+    <States>Mizoram</States>    
+    <Sector_Covered>Other Management Courses</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - University Grad 3rd year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Nagaland</States>   
+    <Sector_Covered>Plumbing</Sector_Covered>	
+    <Skilling_Category>Skill Mission Affiliated - University BA/BCOM/BE/BTECH 1st year</Skilling_Category>
+   
+
+  </Table>
+  
+  <Table>
+    <States>Odisha</States>    
+    <Sector_Covered>Poultry and Dairy</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - University BA/BCOM/BE/BTECH 2nd year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Puducherry</States>   
+    <Sector_Covered>Rubber</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - University BA/BCOM/BE/BTECH 3rd year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Punjab</States>    
+    <Sector_Covered>Rural Services</Sector_Covered>
+    <Skilling_Category>Skill Mission Affiliated - University BA/BCOM/BE/BTECH 4th year</Skilling_Category>
+   
+  </Table>
+  <Table>
+    <States>Rajasthan</States>    
+    <Sector_Covered>Security</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - School 9th class</Skilling_Category>    
+  </Table>
+  <Table>
+    <States>Sikkim</States>    
+    <Sector_Covered>Soft Skills and English Communication</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - School 10th class</Skilling_Category>    
+  </Table>
+  <Table>
+    <States>Telangana</States>   
+    <Sector_Covered>Sports</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - School 11th class</Skilling_Category>
+  </Table>
+  <Table>
+    <States>TamilNadu</States>    
+    <Sector_Covered>Telecom</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - School 12th class</Skilling_Category>
+  </Table>
+  <Table>
+    <States>Tripura</States>    
+    <Sector_Covered>Test Sector</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - University Grad 1st year</Skilling_Category>
+  </Table>
+  <Table>
+    <States>Uttar Pradesh</States>    
+    <Sector_Covered>Textiles and Clothing</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - University Grad 2nd year</Skilling_Category>
+  </Table>
+  <Table>
+    <States>Uttarakhand</States>    
+    <Sector_Covered>Tourism and Hospitality Services</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - University Grad 3rd year</Skilling_Category>
+  </Table>
+  <Table>
+    <States>West Bengal</States>    
+    <Sector_Covered>Transportation/ Logistics/ Warehousing and Packaging</Sector_Covered>
+    <Skilling_Category>SSC Affiliated - University BA/BCOM/BE/BTECH 1st year</Skilling_Category>
+  </Table>
+  <Table>
+    <Sector_Covered>
+      Chemicals and Pharmaceuticals
+    </Sector_Covered>
+    <Skilling_Category>SSC Affiliated - University BA/BCOM/BE/BTECH 2nd year</Skilling_Category>
+  </Table>
+  <Table>   
+    <Skilling_Category>SSC Affiliated - University BA/BCOM/BE/BTECH 3rd year</Skilling_Category>
+  </Table>
+  <Table>   
+    <Skilling_Category>SSC Affiliated - University BA/BCOM/BE/BTECH 4th year</Skilling_Category>
+  </Table>
+  <Table>
+       <Skilling_Category>NULM</Skilling_Category>
+  </Table>
+  <Table>   
+    <Skilling_Category>DDUGKY</Skilling_Category>
+  </Table>
+  
+</NewDataSet>
+
+ 

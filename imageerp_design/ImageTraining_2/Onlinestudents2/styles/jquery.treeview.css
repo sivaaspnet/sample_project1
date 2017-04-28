@@ -1,0 +1,147 @@
+.treeview, .treeview ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.treeview ul {
+}
+.treeview .hitarea {
+    
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    height: 24px;
+    margin-left: -16px;
+    width: 16px;
+}
+* html .hitarea {
+    display: inline;
+    float: none;
+}
+.treeview li {
+    margin: 0;
+}
+.treeview a.selected {
+    color: black;
+    font-weight: bold;
+}
+#treecontrol {
+    display: none;
+    margin: 1em 0;
+}
+.treeview .hover {
+    cursor: pointer;
+}
+.treeview li.collapsable, .treeview li.expandable {
+    background-position: 0 -176px;
+}
+.treeview .expandable-hitarea {
+    background-position: -80px -3px;
+}
+.treeview li.last {
+    background-position: 0 -1766px;
+}
+.treeview li.lastCollapsable {
+    background-position: 0 -111px;
+}
+.treeview li.lastExpandable {
+    background-position: -32px -67px;
+}
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea {
+    background-position: 0 50%;
+}
+.treeview-red li {
+    background-image: url("images/treeview-red-line.gif");
+}
+.treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable {
+    background-image: url("images/treeview-red.gif");
+}
+.treeview-black li {
+    background-image: url("images/treeview-black-line.gif");
+}
+.treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable {
+    background-image: url("images/treeview-black.gif");
+}
+.treeview-gray li {
+    background-image: url("images/treeview-gray-line.gif");
+}
+.treeview-gray .hitarea, .treeview-gray li.lastCollapsable, .treeview-gray li.lastExpandable {
+    background-image: url("images/treeview-gray.gif");
+}
+.treeview-famfamfam li {
+    background-image: url("images/treeview-famfamfam-line.gif");
+}
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable {
+    background-image: url("images/treeview-famfamfam.gif");
+}
+.treeview .placeholder {
+    background: url("images/ajax-loader.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.filetree li {
+}
+.filetree span.folder, .filetree span.file {
+    display: block;
+    padding: 5px 0 0 16px;
+}
+.filetree span.folder {
+   /*    background: url("../layout/tree2.JPG") no-repeat scroll 0 0 transparent;
+*/    color: orange;
+    display: block;
+    font-weight: bold;
+	background:#333;
+	cursor:auto;
+	border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+}
+.filetree li.expandable span.folder {
+    background: url("../layout/tree1.JPG") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    display: none;
+    font-weight: bold;
+    height: 22px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	cursor:auto;
+}
+.filetree span.file {
+   
+    min-height: 18px;
+	width:150px;
+}
+.filetree span.file:hover {
+    background: url("../layout/menubuu.JPG") repeat scroll 0 0 transparent;
+	color:#ff9900;
+	font-weight:bold; 
+}
+#sidetreecontrol a {
+    color: Maroon;
+    font-weight: bold;
+    list-style: none outside none;
+    text-decoration: none;
+}
+.folder {
+    font-size: 12px;
+    min-height: 22px;
+}
+.submenu {
+    background: none repeat scroll 0 0 #fff;
+}
+.submenu li a {
+    text-decoration: none;
+    color: #3366CC;
+}
+.nodisp{ display:none; height:0px;}
+.nodispli{ display:none; height:0px; }
+.submenuhead .nodispli{ color:black !important; font-weight:bold !important; 
+}
+.submenuhead a.selected{ color:black !important; font-weight:bold !important; 
+}
+.submenuheadsame{ color:black !important; font-weight:bold !important;  }
+
+
+
