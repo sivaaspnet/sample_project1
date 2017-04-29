@@ -14,5 +14,7 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Redirect("ImageTraining_2/Onlinestudents2/icreative/Login.aspx");
+
+        //testing by sample
     }
 }
