@@ -1,0 +1,5 @@
+line1 from local
+line2 from remote
+line3 from local
+s
+
